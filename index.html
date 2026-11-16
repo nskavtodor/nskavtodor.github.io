@@ -1775,7 +1775,7 @@ function initScene(THREE){
   $$('.vchip').forEach(function(c){c.addEventListener('click',function(){setMode(c.dataset.view);poke()})});
 
   var dragging=false,px=0,py=0,ptype='mouse';
-  canvas.addEventListener('pointerdown',function(e){if(e.button!==0&&e.pointerType==='mouse')return;
+  canvas.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse'||e.button!==0)return;
     dragging=true;ptype=e.pointerType;px=e.clientX;py=e.clientY;
     canvas.setPointerCapture(e.pointerId);lastInteract=lightUniforms.uTime.value;ensureAudio()});
   canvas.addEventListener('pointermove',function(e){if(!dragging)return;
